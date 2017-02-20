@@ -22,3 +22,9 @@
 
 # TODO List
 /TODO
+
+# OS X files
+.DS_Store
+
+# Backup entities generated with doctrine:generate:entities command
+/src/models/*~
