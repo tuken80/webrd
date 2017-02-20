@@ -1,0 +1,24 @@
+# Cache and logs
+/var/cache/*
+/var/logs/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+
+# Parameters
+/config/prod.php
+
+# Managed by composer
+/vendor/
+
+# Assets
+/web/assets/images/*
+/web/assets/js/*
+/web/assets/css/*
+/web/assets/fonts/*
+!web/assets/images/.gitkeep
+!web/assets/js/.gitkeep
+!web/assets/css/.gitkeep
+!web/assets/fonts/.gitkeep
+
+# TODO List
+/TODO

@@ -1,0 +1,6 @@
+<nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+    <a class="mdl-navigation__link{% if active == 'homepage' %} is-active{% endif %}" href="{{ path('homepage') }}">Accueil</a>
+    <a class="mdl-navigation__link{% if active == 'portfolio' %} is-active{% endif %}" href="{{ path('portfolio') }}">Portfolio</a>
+    <a class="mdl-navigation__link{% if active == 'blog' %} is-active{% endif %}" href="{{ path('blog') }}">Blog</a>
+    <a class="mdl-navigation__link{% if active == 'contact' %} is-active{% endif %}" href="{{ path('contact') }}">Contact</a>
+</nav>
