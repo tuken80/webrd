@@ -5,9 +5,11 @@ use Symfony\Component\HttpFoundation\Response;
 $users = $app['controllers_factory'];
 
 $users->get('/', function () use ($app) {
-    //$users = $app['db']->fetchAll('SELECT * FROM utilisateur');
-    $users = $app['db.em'];
+    //$userRepository = $app['db.em']->getRepository('User');
+    //$users = $userRepository->findAll();
 
+    $users = $app['db']->fetchAll('SELECT * FROM users');
+    
     return new Response(
         $app['twig']->render('admin/users.html', array(
             'users' => $users
