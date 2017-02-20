@@ -9,6 +9,7 @@ echo "L'utilisateur courant est: $WHOAMI"
 UNAME=`uname`
 echo "Définition des droits sur var:"
 echo "Systême: $UNAME."
+
 if [[ "$UNAME" == 'Linux' ]]; then
     sudo setfacl -R -m u:"$HTTPDUSER":rwX -m u:"$WHOAMI":rwX var
     sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:"$WHOAMI":rwX var
