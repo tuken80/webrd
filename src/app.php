@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__.'/providers/DoctrineORMServiceProvider.php';
+
 // src/app.php
 use Silex\Application;
 use Silex\Provider\TwigServiceProvider;
@@ -17,6 +19,7 @@ use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
+//use Application\Provider\DoctrineORMServiceProvider;
 
 $app = new Application();
 
@@ -35,5 +38,6 @@ $app->register(new DoctrineServiceProvider());
 $app->register(new SessionServiceProvider());
 $app->register(new SecurityServiceProvider());
 $app->register(new RememberMeServiceProvider());
+//$app->register(new DoctrineORMServiceProvider());
 
 return $app;

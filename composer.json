@@ -17,6 +17,8 @@
         "symfony/security-csrf": "^3.2",
         "doctrine/dbal": "^2.5",
         "symfony/security": "^3.2",
-        "symfony/finder": "^3.2"
+        "symfony/finder": "^3.2",
+        "doctrine/orm": "^2.5",
+        "symfony/yaml": "^3.2"
     }
 }
