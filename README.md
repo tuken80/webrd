@@ -26,9 +26,9 @@ Website Framework to www.rduquesne.fr
 * Modifier le fichier parameters.yml en fonction de votre configuration
 * Créer la base de données associée.
 
-    ./bin/console check
-    ./vendor/bin/doctrine orm:ensure-production-settings
-    ./vendor/bin/doctrine orm:schema-tool:create
+    php bin/console check
+    php vendor/bin/doctrine orm:ensure-production-settings
+    php vendor/bin/doctrine orm:schema-tool:create
 
 ## Configuration Apache:
 
