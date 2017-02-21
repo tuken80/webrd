@@ -18,6 +18,7 @@ Website Framework to www.rduquesne.fr
 
 ## Installation:
 
+
     git clone git@github.com:tuken80/webrd.git
     cd webrd
     composer install
@@ -26,11 +27,13 @@ Website Framework to www.rduquesne.fr
 * Modifier le fichier parameters.yml en fonction de votre configuration
 * Créer la base de données associée.
 
+
     php bin/console check
     php vendor/bin/doctrine orm:ensure-production-settings
     php vendor/bin/doctrine orm:schema-tool:create
 
 ## Configuration Apache:
+
 
     <VirtualHost *:80>
         ServerAdmin exemple@email.com
