@@ -52,6 +52,7 @@ Website Framework to www.rduquesne.fr
                 RewriteRule ^ index.php [QSA,L]
             </IfModule>
         </Directory>
+
         ErrorLog "/var/log/apache2/webrd-error_log"
         CustomLog "/var/log/apache2/webrd-access_log" common
     </VirtualHost>
