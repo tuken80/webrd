@@ -36,7 +36,7 @@ Web Framework
 
 
     # Définition des droits sur le répertoire var.
-    php bin/console droits
+    php bin/console set-permissions
     # Vérification de la sécurité.
     php bin/console check
     # Test de l'environnement de production pour doctrine.
@@ -53,10 +53,10 @@ Web Framework
 
 
     # Console:
-    php bin/console list
+    ./bin/console
     # Doctrine:
-    php vendor/bin/doctrine.php
-    php vendor/bin/doctrine-dbal
+    ./vendor/bin/doctrine.php
+    ./vendor/bin/doctrine-dbal
 
 ## Configuration Apache:
 

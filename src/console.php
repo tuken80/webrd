@@ -54,7 +54,7 @@ $console
     });
 
 $console
-    ->register('droits')
+    ->register('set-permissions')
     ->setDefinition(array(
         // new InputOption('some-option', null, InputOption::VALUE_NONE, 'Some help'),
     ))
