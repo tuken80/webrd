@@ -24,7 +24,6 @@ Website Framework to www.rduquesne.fr
     composer install
     cp config/parameters.yml.dist config/parameters.yml
 
----
 * Modifier le fichier parameters.yml en fonction de votre configuration
 * Créer la base de données associée.
 ---
