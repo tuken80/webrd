@@ -5,20 +5,20 @@
 !var/logs/.gitkeep
 
 # Parameters
-/config/prod.php
+/config/parameters.yml
 
 # Managed by composer
 /vendor/
 
 # Assets
-/web/assets/images/*
-/web/assets/js/*
-/web/assets/css/*
-/web/assets/fonts/*
-!web/assets/images/.gitkeep
-!web/assets/js/.gitkeep
-!web/assets/css/.gitkeep
-!web/assets/fonts/.gitkeep
+/web/images/*
+/web/js/*
+/web/css/*
+/web/fonts/*
+!web/images/.gitkeep
+!web/js/.gitkeep
+!web/css/.gitkeep
+!web/fonts/.gitkeep
 
 # TODO List
 /TODO

@@ -1,0 +1,56 @@
+{% extends 'admin/base-admin.html' %}
+
+{% block titre %}
+    {% include 'admin/titre-admin.html' with {'titre': 'Utilisateurs'} %}
+{% endblock %}
+
+{% block body %}
+<style>
+.demo-list-three {
+  width: 650px;
+}
+</style>
+
+<ul class="demo-list-three mdl-list">
+  <li class="mdl-list__item mdl-list__item--three-line">
+    <span class="mdl-list__item-primary-content">
+      <span>Identifiant:</span>
+      <span class="mdl-list__item-text-body">
+        {{ user.id }}
+      </span>
+    </span>
+  </li>
+  <li class="mdl-list__item mdl-list__item--three-line">
+    <span class="mdl-list__item-primary-content">
+      <span>Nom:</span>
+      <span class="mdl-list__item-text-body">
+        {{ user.nom }}
+      </span>
+    </span>
+  </li>
+  <li class="mdl-list__item mdl-list__item--three-line">
+    <span class="mdl-list__item-primary-content">
+      <span>Prénom:</span>
+      <span class="mdl-list__item-text-body">
+        {{ user.prenom }}
+      </span>
+    </span>
+  </li>
+  <li class="mdl-list__item mdl-list__item--three-line">
+    <span class="mdl-list__item-primary-content">
+      <span>Email:</span>
+      <span class="mdl-list__item-text-body">
+        {{ user.email }}
+      </span>
+    </span>
+  </li>
+  <li class="mdl-list__item mdl-list__item--three-line">
+    <span class="mdl-list__item-primary-content">
+      <span>Login:</span>
+      <span class="mdl-list__item-text-body">
+        {{ user.login }}
+      </span>
+    </span>
+  </li>
+</ul>
+{% endblock %}

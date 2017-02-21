@@ -8,7 +8,7 @@
 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
   <thead>
     <tr>
-      <th>Index</th>
+      <th>Identifiant</th>
       <th class="mdl-data-table__cell--non-numeric">Adresse email</th>
       <th class="mdl-data-table__cell--non-numeric">Login</th>
       <th class="mdl-data-table__cell--non-numeric">Prénom</th>
@@ -17,13 +17,15 @@
   </thead>
   <tbody>
     {% for user in users %}
-        <tr>
-            <td>{{ loop.index }}</td>
+          <tr>
+            <td>
+              <a href="{{ path('admin-users-view', {id: user.id}) }}">{{ user.id }}</a>
+            </td>
             <td class="mdl-data-table__cell--non-numeric">{{ user.email }}</td>
             <td class="mdl-data-table__cell--non-numeric">{{ user.login }}</td>
             <td class="mdl-data-table__cell--non-numeric">{{ user.nom }}</td>
             <td class="mdl-data-table__cell--non-numeric">{{ user.prenom }}</td>
-        </tr>
+          </tr>
     {% endfor %}    
   </tbody>
 </table>

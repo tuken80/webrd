@@ -20,5 +20,10 @@
         "symfony/finder": "^3.2",
         "doctrine/orm": "^2.5",
         "symfony/yaml": "^3.2"
+    },
+    "autoload": {
+        "psr-4": { 
+            "": "src/models/"
+        }
     }
 }
