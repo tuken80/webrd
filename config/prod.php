@@ -3,9 +3,6 @@
 // config/prod.php
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\Yaml\Yaml;
-
-$parameters = Yaml::parse(file_get_contents(__DIR__.'/parameters.yml'));
 
 // Configuration de twig
 $app['twig.path'] = __DIR__.'/../src/templates';
