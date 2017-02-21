@@ -9,7 +9,7 @@ $admin->get('/', function () use ($app) {
     return new Response(
         $app['twig']->render('admin/index.html'), 
         200, 
-        array('Cache-Control' => 's-maxage=3600, public')
+        array('Cache-Control' => 's-maxage=5, public')
     );
 })
 ->bind('admin')

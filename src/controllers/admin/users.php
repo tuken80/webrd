@@ -15,7 +15,7 @@ $users->get('/', function () use ($app) {
             'users' => $users
         )), 
         200, 
-        array('Cache-Control' => 's-maxage=3600, public')
+        array('Cache-Control' => 's-maxage=5, public')
     );
 })
 ->bind('admin-users')
@@ -30,7 +30,7 @@ $users->get('/{id}', function ($id) use ($app) {
             'user' => $user
         )), 
         200, 
-        array('Cache-Control' => 's-maxage=3600, public')
+        array('Cache-Control' => 's-maxage=5, public')
     );
 })
 ->bind('admin-users-view')

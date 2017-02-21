@@ -7,7 +7,7 @@ $app->get('/', function () use ($app) {
     return new Response(
         $app['twig']->render('about.html'), 
         200, 
-        array('Cache-Control' => 's-maxage=3600, public')
+        array('Cache-Control' => 's-maxage=5, public')
     );
 })
 ->bind('homepage')
@@ -18,7 +18,7 @@ $app->get('/blog', function () use ($app) {
     return new Response(
         $app['twig']->render('blog.html'), 
         200, 
-        array('Cache-Control' => 's-maxage=3600, public')
+        array('Cache-Control' => 's-maxage=5, public')
     );
 })
 ->bind('blog')

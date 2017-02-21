@@ -10,16 +10,6 @@
 # Managed by composer
 /vendor/
 
-# Assets
-/web/images/*
-/web/js/*
-/web/css/*
-/web/fonts/*
-!web/images/.gitkeep
-!web/js/.gitkeep
-!web/css/.gitkeep
-!web/fonts/.gitkeep
-
 # TODO List
 /TODO
 

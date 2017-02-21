@@ -9,7 +9,7 @@ $portfolio->get('/', function () use ($app) {
     return new Response(
         $app['twig']->render('portfolio/index.html'), 
         200, 
-        array('Cache-Control' => 's-maxage=3600, public')
+        array('Cache-Control' => 's-maxage=5, public')
     );
 })
 ->bind('portfolio')
@@ -20,7 +20,7 @@ $portfolio->get('/{id}', function ($id) use ($app) {
     return new Response(
         $app['twig']->render('portfolio/single-view.html'), 
         200, 
-        array('Cache-Control' => 's-maxage=3600, public')
+        array('Cache-Control' => 's-maxage=5, public')
     );
 })
 ->bind('portfolio-vue')

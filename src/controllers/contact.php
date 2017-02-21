@@ -42,7 +42,7 @@ $contact->match('/', function (Request $request) use ($app) {
             'form' => $form->createView()
             )), 
         200, 
-        array('Cache-Control' => 's-maxage=3600, public')
+        array('Cache-Control' => 's-maxage=5, public')
     );
 })
 ->bind('contact')
