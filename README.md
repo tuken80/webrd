@@ -19,9 +19,12 @@ Web Framework
 ## Installation:
 
 
+    # Cloner le repository
     git clone git@github.com:tuken80/webrd.git
     cd webrd
+    # Installer les dépendances avec composer
     composer install
+    # Copier le fichier de configuration exemple.
     cp config/parameters.yml.dist config/parameters.yml
 
 ***
@@ -32,9 +35,28 @@ Web Framework
 ***
 
 
+    # Définition des droits sur le répertoire var.
+    php bin/console droits
+    # Vérification de la sécurité.
     php bin/console check
+    # Test de l'environnement de production pour doctrine.
     php vendor/bin/doctrine orm:ensure-production-settings
+    # Création de le structure de la base de données en fonction de vos Modeles.
     php vendor/bin/doctrine orm:schema-tool:create
+    
+***
+
+>**Note**
+>Liste de toutes les commandes:
+
+***
+
+
+    # Console:
+    php bin/console list
+    # Doctrine:
+    php vendor/bin/doctrine.php
+    php vendor/bin/doctrine-dbal
 
 ## Configuration Apache:
 
