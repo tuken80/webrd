@@ -24,7 +24,7 @@ $console
         $output->writeln("Removing all files and folders in var/cache.");
 
         $finder = new Finder();
-        $files = $finder->in($dir);
+        $files = $finder->in($dir)->exclude('.gitkeep');
         $fs = new Filesystem();
         $fs->remove($files);
 
