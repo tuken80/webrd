@@ -25,8 +25,8 @@ Website Framework to www.rduquesne.fr
     cp config/parameters.yml.dist config/parameters.yml
 
 ---
-> Modifier le fichier parameters.yml en fonction de votre configuration
-> Créer la base de données associée.
+* Modifier le fichier parameters.yml en fonction de votre configuration
+* Créer la base de données associée.
 ---
 
 
