@@ -1,6 +1,6 @@
 # webrd
 
-Web Framework
+Silex Web Framework Skeleton
 
 ## Use:
 

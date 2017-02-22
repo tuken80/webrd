@@ -20,5 +20,6 @@ require __DIR__.'/../config/dev.php';
 require __DIR__.'/../src/controllers.php';
 
 Request::enableHttpMethodParameterOverride();
+Request::setTrustedProxies(array('127.0.0.1', '::1'));
 
 $app->run();
