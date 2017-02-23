@@ -1,13 +1,13 @@
 {
+    "name": "WebrdFramework",
+    "description": "Silex Web Framework Skeleton",
+    "license": "MIT",
+    "type": "project",
     "require": {
         "silex/silex": "^2.0",
         "twig/twig": "^2.1",
         "symfony/twig-bridge": "^3.2",
         "symfony/asset": "^3.2",
-        "monolog/monolog": "^1.22",
-        "silex/web-profiler": "^2.0",
-        "symfony/monolog-bridge": "^3.2",
-        "symfony/debug-bundle": "^3.2",
         "symfony/console": "^3.2",
         "swiftmailer/swiftmailer": "^5.4",
         "symfony/form": "^3.2",
@@ -19,11 +19,31 @@
         "symfony/security": "^3.2",
         "symfony/finder": "^3.2",
         "doctrine/orm": "^2.5",
-        "symfony/yaml": "^3.2"
+        "symfony/yaml": "^3.2",
+        "php": "^7.1"
+    },    
+    "require-dev": {
+        "monolog/monolog": "^1.22",
+        "phpunit/php-invoker": "^1.1",
+        "phpunit/phpunit": "^6.0",
+        "silex/web-profiler": "^2.0",
+        "squizlabs/php_codesniffer": "^2.8",
+        "symfony/debug-bundle": "^3.2",
+        "symfony/monolog-bridge": "^3.2",
+        "symfony/var-dumper": "^3.2"
     },
     "autoload": {
-        "psr-4": { 
+        "psr-0": { 
             "": "src/models/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "apcu-autoloader": true,
+        "cache-dir": "var/cache",
+        "preferred-install": {
+            "*": "source"
         }
     }
 }

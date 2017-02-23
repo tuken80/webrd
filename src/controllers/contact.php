@@ -6,45 +6,48 @@ use Symfony\Component\HttpFoundation\Response;
 $contact = $app['controllers_factory'];
 
 // Contact index
-$contact->match('/', function (Request $request) use ($app) {
+$contact->match(
+    '/', function (Request $request) use ($app) {
+        $form = include __DIR__.'/../forms/contact.php';
 
-    $form = include __DIR__.'/../forms/contact.php';
+        $form->handleRequest($request);
 
-    $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
 
-    if ($form->isSubmitted() && $form->isValid()) {
-        $data = $form->getData();
-
-        $message = \Swift_Message::newInstance()
+            $message = \Swift_Message::newInstance()
             ->setSubject($data['Sujet'])
             ->setFrom(array($data['Email']))
             ->setTo(array('romain.duquesne.mail@gmail.com'))
             ->setBody(
-                    $app['twig']->render(
-                        'emails/mail-contact.html',
-                        array(
-                            'mail_from' => $data['Email'], 
+                $app['twig']->render(
+                    'emails/mail-contact.html',
+                    array(
+                            'mail_from' => $data['Email'],
                             'mail_content' => $data['Contenu']
                             )
-                    ),
-                    'text/html'
-                );
+                ),
+                'text/html'
+            );
 
-        $app['mailer']->send($message);
+            $app['mailer']->send($message);
         
-        $app['session']->getFlashBag()->add('application', 'Votre message a bien était envoyé.');
+            $app['session']->getFlashBag()->add('application', 'Votre message a bien était envoyé.');
 
-        return $app->redirect('/contact');
-    }
+            return $app->redirect('/contact');
+        }
     
-    return new Response(
-        $app['twig']->render('contact.html', array(
-            'form' => $form->createView()
-            )), 
-        200, 
-        array('Cache-Control' => 's-maxage=5, public')
-    );
-})
+        return new Response(
+            $app['twig']->render(
+                'contact.html', array(
+                'form' => $form->createView()
+                )
+            ),
+            200,
+            array('Cache-Control' => 's-maxage=5, public')
+        );
+    }
+)
 ->bind('contact')
 ->method('GET|POST');
 

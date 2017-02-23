@@ -1,6 +1,18 @@
 <?php
 
-// config/prod.php
+/**
+ * Ce fichier active le mode de production de l'application, 
+ * il s'agit d'un fichier de configuration qui active plusieurs services.
+ *
+ * PHP version 7
+ *
+ * @category PHP
+ * @package  WebrdFramework
+ * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+ * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+ * @link     https://github.com/tuken80/webrd.git
+ */
+
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
@@ -50,8 +62,10 @@ $app['db.options'] = array(
 );
 
 // Configuration de doctrine orm
-$app['db.config'] = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/../src/models"), $app['debug']);
-$app['db.em'] = EntityManager::create($app['db.options'], $app['db.config']);    
+$app['db.config'] = Setup::createAnnotationMetadataConfiguration(
+    array(__DIR__."/../src/models"), $app['debug']
+);
+$app['db.em'] = EntityManager::create($app['db.options'], $app['db.config']);
 
 // Configuration du firewall
 $app['security.firewalls'] = array(
