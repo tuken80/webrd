@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Ce fichier contient les controllers de la partie session du site.
+ * Example: Login, Login_check, logout, account, etc ...
+ *
+ * PHP version 7
+ *
+ * @category PHP
+ * @package  WebrdFramework
+ * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+ * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+ * @link     https://github.com/tuken80/webrd.git
+ */
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,7 +27,10 @@ $app->get(
         }
 
         $response = new Response();
-        $response->headers->set('WWW-Authenticate', sprintf('Basic realm="%s"', 'site_login'));
+        $response->headers->set(
+            'WWW-Authenticate', 
+            sprintf('Basic realm="%s"', 'site_login')
+        );
         $response->setStatusCode(401, 'Please sign in.');
         return $response;
     }

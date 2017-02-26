@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Ce fichier la déclaration du formulaire de contact du site.
+ *
+ * PHP version 7
+ *
+ * @category PHP
+ * @package  WebrdFramework
+ * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+ * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+ * @link     https://github.com/tuken80/webrd.git
+ */
+
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;

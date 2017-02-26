@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Ce fichier contient les controllers de la partie contact du site.
+ *
+ * PHP version 7
+ *
+ * @category PHP
+ * @package  WebrdFramework
+ * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+ * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+ * @link     https://github.com/tuken80/webrd.git
+ */
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -32,7 +44,10 @@ $contact->match(
 
             $app['mailer']->send($message);
         
-            $app['session']->getFlashBag()->add('application', 'Votre message a bien était envoyé.');
+            $app['session']->getFlashBag()->add(
+                'application', 
+                'Votre message a bien était envoyé.'
+            );
 
             return $app->redirect('/contact');
         }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ce fichier active le mode debug de l'application, 
+ * Ce fichier active le mode debug de l'application,
  * il s'agit d'un fichier de configuration qui active plusieurs services.
  *
  * PHP version 7

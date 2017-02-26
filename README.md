@@ -41,7 +41,7 @@ Silex Web Framework Skeleton
     php bin/console check
     # Test de l'environnement de production pour doctrine.
     php vendor/bin/doctrine orm:ensure-production-settings
-    # Création de le structure de la base de données en fonction de vos Modeles.
+    # Création de le structure de la base de données en fonction de vos Models.
     php vendor/bin/doctrine orm:schema-tool:create
     
 ***
@@ -64,10 +64,10 @@ Silex Web Framework Skeleton
     <VirtualHost *:80>
         ServerAdmin exemple@email.com
         ServerName www.example.com
-        DocumentRoot "/path/to/webrd/public"
+        DocumentRoot /path/to/silex/public
         DirectoryIndex index.php
 
-        <Directory "/path/to/webrd/public/">
+        <Directory /path/to/silex/public>
             AllowOverride All
             Options Indexes MultiViews FollowSymLinks
             Require all granted
@@ -79,6 +79,12 @@ Silex Web Framework Skeleton
                 RewriteCond %{REQUEST_FILENAME} !-d
                 RewriteCond %{REQUEST_FILENAME} !-f
                 RewriteRule ^ index.php [QSA,L]
+            </IfModule>
+        </Directory>
+
+        <Directory /path/to/silex/public/assets>
+            <IfModule mod_rewrite.c>
+                RewriteEngine Off
             </IfModule>
         </Directory>
 

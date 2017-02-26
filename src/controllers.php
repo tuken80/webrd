@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Ce fichier contient le montage (mount) des controllers du site,
+ * ainsi que la partie renvois d'erreur à l'utilisateur.
+ *
+ * PHP version 7
+ *
+ * @category PHP
+ * @package  WebrdFramework
+ * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+ * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+ * @link     https://github.com/tuken80/webrd.git
+ */
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -9,6 +22,7 @@ require 'controllers/default.php';
 $admin = include 'controllers/admin/default.php';
 $admin->mount('/users', require 'controllers/admin/users.php');
 $app->mount('/admin', $admin);
+
 $app->mount('/portfolio', require 'controllers/portfolio.php');
 $app->mount('/contact', require 'controllers/contact.php');
 
@@ -27,6 +41,11 @@ $app->error(
         'errors/default.html.twig',
         );
 
-        return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
+        return new Response(
+            $app['twig']->resolveTemplate($templates)->render(
+                array('code' => $code)
+            ), 
+            $code
+        );
     }
 );

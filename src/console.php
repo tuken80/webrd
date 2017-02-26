@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Ce fichier contient les différentes commandes personnelles, 
+ * déclaration et code à éxécuter, disponible avec bin/console.
+ *
+ * PHP version 7
+ *
+ * @category PHP
+ * @package  WebrdFramework
+ * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+ * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+ * @link     https://github.com/tuken80/webrd.git
+ */
+
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -9,7 +22,14 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\Filesystem\Filesystem;
 
 $console = new Application('Rd-Silex Application', 'n/a');
-$console->getDefinition()->addOption(new InputOption('--env', '-e', InputOption::VALUE_REQUIRED, 'The Environment name.', 'dev'));
+$console->getDefinition()->addOption(
+    new InputOption(
+        '--env', 
+        '-e', 
+        InputOption::VALUE_REQUIRED, 
+        'The Environment name.', 'dev'
+    )
+);
 $console->setDispatcher($app['dispatcher']);
 
 $console
@@ -40,14 +60,24 @@ $console
             if (!file_exists("/usr/local/bin/security-checker")) {
                 $output->writeln('Téléchargement de security-checker.phar.');
                 shell_exec('wget "http://get.sensiolabs.org/security-checker.phar"');
-                $output->writeln('Déplacement de security-checker.phar dans /usr/local/bin avec comme nom security-checker.');
-                shell_exec('sudo mv security-checker.phar /usr/local/bin/security-checker');
-                $output->writeln('Ajout du droit d\'éxécution sur /usr/local/bin/security-checker.');
+                $output->writeln(
+                    'Déplacement dans /usr/local/bin sous security-checker.'
+                );
+                shell_exec(
+                    'sudo mv security-checker.phar /usr/local/bin/security-checker'
+                );
+                $output->writeln(
+                    'Ajout du droit d\'éxécution.'
+                );
                 shell_exec('sudo chmod +x /usr/local/bin/security-checker');
             }
 
-            $output->writeln('Exécution de l\'analyse de sécurité sur composer.lock.');
-            $alerts = shell_exec('security-checker security:check '.__DIR__.'/../composer.lock');
+            $output->writeln(
+                'Exécution de l\'analyse de sécurité sur composer.lock.'
+            );
+            $alerts = shell_exec(
+                'security-checker security:check '.__DIR__.'/../composer.lock'
+            );
             $output->write($alerts);
         }
     );
@@ -64,6 +94,18 @@ $console
 
                 $output->write($result);
             }
+        }
+    );
+
+$console
+    ->register('assets:dump')
+    ->setDefinition(array())
+    ->setDescription('The command use bin/set_permissions.sh file.')
+    ->setCode(
+        function (InputInterface $input, OutputInterface $output) use ($app) {
+
+
+
         }
     );
 

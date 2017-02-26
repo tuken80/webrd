@@ -1,7 +1,19 @@
 <?php
 
+/**
+ * Ce fichier contient les controllers de la partie administration 
+ * des utilisateurs du site.
+ *
+ * PHP version 7
+ *
+ * @category PHP
+ * @package  WebrdFramework
+ * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+ * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+ * @link     https://github.com/tuken80/webrd.git
+ */
+
 use Symfony\Component\HttpFoundation\Response;
-use Application\Model\User;
 
 $users = $app['controllers_factory'];
 

@@ -1,38 +1,68 @@
 <?php
-// src/modeles/User.php
 
 /**
+ * Ce fichier contient la déclaration de 
+ * la class utilisateur du site.
+ *
+ * PHP version 7
+ *
+ * @category PHP
+ * @package  WebrdFramework
+ * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+ * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+ * @link     https://github.com/tuken80/webrd.git
+ */
+
+/**
+ * Déclaration de la class utilisateur du site.
+ *
+ * @category PHP
+ * @package  WebrdFramework
+ * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+ * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+ * @link     https://github.com/tuken80/webrd.git
+ *
  * @Entity(repositoryClass="UserRepository") @Table(name="users")
  */
 class User
 {
     /**
-     * @Id @GeneratedValue @Column(type="integer")
+     * Identifiant utilisateur.
+     *
+     * @Id  @GeneratedValue @Column(type="integer")
      * @var int
      */
     protected $id;
 
     /**
+     * Nom utilisateur.
+     *
      * @Column(type="string")
-     * @var string
+     * @var                   string
      */
     protected $nom;
 
     /**
+     * Prénom utilisateur.
+     *
      * @Column(type="string")
-     * @var string
+     * @var                   string
      */
     protected $prenom;
 
     /**
+     * Adresse email utilisateur.
+     *
      * @Column(type="string")
-     * @var string
+     * @var                   string
      */
     protected $email;
 
     /**
+     * Login utilisateur.
+     *
      * @Column(type="string")
-     * @var string
+     * @var                   string
      */
     protected $login;
 
@@ -49,8 +79,8 @@ class User
     /**
      * Set nom
      *
-     * @param string $nom
-     *
+     * @param string $nom Le nouveau nom de l'utilisateur.
+     *  
      * @return User
      */
     public function setNom($nom)
@@ -73,7 +103,7 @@ class User
     /**
      * Set prenom
      *
-     * @param string $prenom
+     * @param string $prenom Le nouveau prénom de l'utilisateur.
      *
      * @return User
      */
@@ -97,7 +127,7 @@ class User
     /**
      * Set email
      *
-     * @param string $email
+     * @param string $email La nouvelle adresse email de l'utilisateur.
      *
      * @return User
      */
@@ -121,7 +151,7 @@ class User
     /**
      * Set login
      *
-     * @param string $login
+     * @param string $login Le nouveau login de l'utilisateur.
      *
      * @return User
      */

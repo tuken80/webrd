@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Front controller de l'application pour la production.
+ * Bootstrap de l'application pour la production.
  *
  * PHP version 7
  *

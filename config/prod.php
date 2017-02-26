@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ce fichier active le mode de production de l'application, 
+ * Ce fichier active le mode de production de l'application,
  * il s'agit d'un fichier de configuration qui active plusieurs services.
  *
  * PHP version 7
@@ -24,10 +24,10 @@ $app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig');
 $app['assets.version'] = 'v1';
 $app['assets.version_format'] = '%s?version=%s';
 $app['assets.named_packages'] = array(
-    'css' => array('version' => 'css2', 'base_path' => '/css/'),
-    'js' => array('base_path' => '/js/'),
-    'img' => array('base_path' => '/images/'),
-    'font' => array('base_path' => '/fonts/'),
+    'css' => array('version' => 'css2', 'base_path' => '/assets/css/'),
+    'js' => array('base_path' => '/assets/js/'),
+    'img' => array('base_path' => '/assets/images/'),
+    'font' => array('base_path' => '/assets/fonts/'),
 );
 
 // Configuration de SwiftMailer

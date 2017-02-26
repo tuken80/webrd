@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Front controller de l'application pour le développement.
+ * Boostrap de l'application pour le développement.
  *
  * PHP version 7
  *
@@ -16,8 +16,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\Yaml\Yaml;
 
-if (isset($_SERVER['HTTP_CLIENT_IP']) 
-    || isset($_SERVER['HTTP_X_FORWARDED_FOR']) 
+if (isset($_SERVER['HTTP_CLIENT_IP'])
+    || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
     || !in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'fe80::1', '::1'))
 ) {
     header('HTTP/1.0 403 Forbidden');
