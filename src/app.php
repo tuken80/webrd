@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Ce fichier permet d'enregistrer tous les services utilisés par l'application.
+ * Ce fichier permet d'enregistrer les différents services
+ * utilisés par l'application.
  *
  * PHP version 7
  *

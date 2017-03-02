@@ -1,0 +1,9 @@
+{ 
+    "name" : "WebrdFramework",
+    "description" : "Only to use uglifyjs & uglifycss in my PHP application.",
+    "license" : "MIT",
+    "repository" : { 
+        "type" : "git", 
+        "url" : "https://github.com/tuken80/silex-skeleton.git"
+    }
+}

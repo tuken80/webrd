@@ -7,7 +7,7 @@
         "php": "^7.1",
         "doctrine/dbal": "^2.5",
         "doctrine/orm": "^2.5",
-        "silex/silex": "^2.0",
+        "silex/silex": "dev-master",
         "swiftmailer/swiftmailer": "^5.4",
         "symfony/asset": "^3.2",
         "symfony/config": "^3.2",
@@ -27,7 +27,8 @@
         "phpunit/php-invoker": "^1.1",
         "phpunit/phpunit": "^6.0",
         "silex/web-profiler": "^2.0",
-        "symfony/debug-bundle": "^3.2",
+        "squizlabs/php_codesniffer": "^2.8",
+        "symfony/debug": "^3.2",
         "symfony/monolog-bridge": "^3.2",
         "symfony/phpunit-bridge": "^3.2",
         "symfony/var-dumper": "^3.2"

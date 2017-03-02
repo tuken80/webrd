@@ -21,7 +21,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Filesystem\Filesystem;
 
-$console = new Application('Rd-Silex Application', 'n/a');
+$console = new Application('Webrd Application', 'n/a');
 $console->getDefinition()->addOption(
     new InputOption(
         '--env', 
@@ -83,29 +83,37 @@ $console
     );
 
 $console
-    ->register('permissions')
-    ->setDefinition(array())
-    ->setDescription('The command execute bin/set_permissions.sh file.')
-    ->setCode(
-        function (InputInterface $input, OutputInterface $output) use ($app) {
-            if (file_exists(__DIR__.'/../bin/set_permissions.sh')) {
-                $output->writeln('Exécution du fichier bin/set_permissions.sh.');
-                $result = shell_exec('bash '.__DIR__.'/../bin/set_permissions.sh');
-
-                $output->write($result);
-            }
-        }
-    );
-
-$console
     ->register('assets:dump')
     ->setDefinition(array())
-    ->setDescription('The command use bin/set_permissions.sh file.')
+    ->setDescription('The command compress js and css to one file.')
     ->setCode(
         function (InputInterface $input, OutputInterface $output) use ($app) {
+            $cssDir = __DIR__."/../public/assets/css";
+            $jsDir = __DIR__."/../public/assets/js";
 
+            $finder = new Finder();
+            $cssFiles = $finder->in($cssDir);
+            $jsFiles = $finder->in($jsDir);
 
+            $runCss = "node_modules/.bin/uglifycss ";
+            foreach ($cssFiles as $cssfile) {
+                if (is_file($cssfile)) {
+                    $runCss.=$cssfile." ";
+                }
+            }
+            $runCss.=" > public/assets/css/compiled/compiled.css";
 
+            $runJs = "node_modules/.bin/uglifyjs ";
+            foreach ($jsFiles as $jsfile) {
+                if (is_file($jsfile)) {
+                    $runJs.=$jsfile." ";
+                }
+            }
+            $runJs.="> public/assets/js/compiled/compiled.js";
+            
+            shell_exec($runCss);    
+            shell_exec($runJs);    
+        
         }
     );
 

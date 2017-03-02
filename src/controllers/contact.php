@@ -33,7 +33,7 @@ $contact->match(
             ->setTo(array('romain.duquesne.mail@gmail.com'))
             ->setBody(
                 $app['twig']->render(
-                    'emails/mail-contact.html',
+                    'contact/mail-contact.html',
                     array(
                             'mail_from' => $data['Email'],
                             'mail_content' => $data['Contenu']
@@ -54,7 +54,7 @@ $contact->match(
     
         return new Response(
             $app['twig']->render(
-                'contact.html', array(
+                'contact/index.html', array(
                 'form' => $form->createView()
                 )
             ),

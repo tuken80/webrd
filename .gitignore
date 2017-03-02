@@ -10,6 +10,9 @@
 # Managed by composer
 /vendor/
 
+# Managed by NodeJS
+/node_modules/
+
 # TODO List
 /TODO
 
