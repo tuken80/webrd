@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ce fichier contient la déclaration du formulaire de contact du site.
+ * Ce fichier contient la déclaration du formulaire de login du site.
  *
  * PHP version 7
  *
@@ -14,22 +14,16 @@
 
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 $form = $app['form.factory']->createBuilder(FormType::class)
     ->add(
-        'Email', TextType::class, array(
-            'constraints' => array(new Assert\NotBlank(), new Assert\Email())
+        'Login', TextType::class, array(
+            'constraints' => array(new Assert\NotBlank())
         )
     )
     ->add(
-        'Sujet', TextType::class, array(
-            'constraints' => new Assert\NotBlank()
-        )
-    )
-    ->add(
-        'Contenu', TextareaType::class, array(
+        'Password', TextType::class, array(
             'constraints' => new Assert\NotBlank()
         )
     )

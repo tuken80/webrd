@@ -1,174 +1,177 @@
 <?php
 
-/**
- * Ce fichier contient la déclaration de 
- * la class utilisateur du site.
- *
- * PHP version 7
- *
- * @category PHP
- * @package  WebrdFramework
- * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
- * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
- * @link     https://github.com/tuken80/webrd.git
- */
-
-/**
- * Déclaration de la class utilisateur du site.
- *
- * @category PHP
- * @package  WebrdFramework
- * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
- * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
- * @link     https://github.com/tuken80/webrd.git
- *
- * @Entity(repositoryClass="UserRepository") @Table(name="users")
- */
-class User
-{
-    /**
-     * Identifiant utilisateur.
-     *
-     * @Id  @GeneratedValue @Column(type="integer")
-     * @var int
-     */
-    protected $id;
+namespace Model {
 
     /**
-     * Nom utilisateur.
-     *
-     * @Column(type="string")
-     * @var                   string
-     */
-    protected $nom;
+    * Ce fichier contient la déclaration de 
+    * la class utilisateur du site.
+    *
+    * PHP version 7
+    *
+    * @category PHP
+    * @package  WebrdFramework
+    * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+    * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+    * @link     https://github.com/tuken80/webrd.git
+    */
 
     /**
-     * Prénom utilisateur.
-     *
-     * @Column(type="string")
-     * @var                   string
-     */
-    protected $prenom;
-
-    /**
-     * Adresse email utilisateur.
-     *
-     * @Column(type="string")
-     * @var                   string
-     */
-    protected $email;
-
-    /**
-     * Login utilisateur.
-     *
-     * @Column(type="string")
-     * @var                   string
-     */
-    protected $login;
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
+    * Déclaration de la class utilisateur du site.
+    *
+    * @category PHP
+    * @package  WebrdFramework
+    * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+    * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+    * @link     https://github.com/tuken80/webrd.git
+    *
+    * @Entity(repositoryClass="UserRepository") @Table(name="users")
+    */
+    class User
     {
-        return $this->id;
-    }
+        /**
+        * Identifiant utilisateur.
+        *
+        * @Id  @GeneratedValue @Column(type="integer")
+        * @var int
+        */
+        protected $id;
 
-    /**
-     * Set nom
-     *
-     * @param string $nom Le nouveau nom de l'utilisateur.
-     *  
-     * @return User
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
+        /**
+        * Nom utilisateur.
+        *
+        * @Column(type="string")
+        * @var                   string
+        */
+        protected $nom;
 
-        return $this;
-    }
+        /**
+        * Prénom utilisateur.
+        *
+        * @Column(type="string")
+        * @var                   string
+        */
+        protected $prenom;
 
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
+        /**
+        * Adresse email utilisateur.
+        *
+        * @Column(type="string")
+        * @var                   string
+        */
+        protected $email;
 
-    /**
-     * Set prenom
-     *
-     * @param string $prenom Le nouveau prénom de l'utilisateur.
-     *
-     * @return User
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
+        /**
+        * Login utilisateur.
+        *
+        * @Column(type="string")
+        * @var                   string
+        */
+        protected $login;
 
-        return $this;
-    }
+        /**
+        * Get id
+        *
+        * @return integer
+        */
+        public function getId()
+        {
+            return $this->id;
+        }
 
-    /**
-     * Get prenom
-     *
-     * @return string
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
+        /**
+        * Set nom
+        *
+        * @param string $nom Le nouveau nom de l'utilisateur.
+        *  
+        * @return User
+        */
+        public function setNom($nom)
+        {
+            $this->nom = $nom;
 
-    /**
-     * Set email
-     *
-     * @param string $email La nouvelle adresse email de l'utilisateur.
-     *
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
+            return $this;
+        }
 
-        return $this;
-    }
+        /**
+        * Get nom
+        *
+        * @return string
+        */
+        public function getNom()
+        {
+            return $this->nom;
+        }
 
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
+        /**
+        * Set prenom
+        *
+        * @param string $prenom Le nouveau prénom de l'utilisateur.
+        *
+        * @return User
+        */
+        public function setPrenom($prenom)
+        {
+            $this->prenom = $prenom;
 
-    /**
-     * Set login
-     *
-     * @param string $login Le nouveau login de l'utilisateur.
-     *
-     * @return User
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
+            return $this;
+        }
 
-        return $this;
-    }
+        /**
+        * Get prenom
+        *
+        * @return string
+        */
+        public function getPrenom()
+        {
+            return $this->prenom;
+        }
 
-    /**
-     * Get login
-     *
-     * @return string
-     */
-    public function getLogin()
-    {
-        return $this->login;
+        /**
+        * Set email
+        *
+        * @param string $email La nouvelle adresse email de l'utilisateur.
+        *
+        * @return User
+        */
+        public function setEmail($email)
+        {
+            $this->email = $email;
+
+            return $this;
+        }
+
+        /**
+        * Get email
+        *
+        * @return string
+        */
+        public function getEmail()
+        {
+            return $this->email;
+        }
+
+        /**
+        * Set login
+        *
+        * @param string $login Le nouveau login de l'utilisateur.
+        *
+        * @return User
+        */
+        public function setLogin($login)
+        {
+            $this->login = $login;
+
+            return $this;
+        }
+
+        /**
+        * Get login
+        *
+        * @return string
+        */
+        public function getLogin()
+        {
+            return $this->login;
+        }
     }
 }

@@ -75,14 +75,14 @@ $app['security.firewalls'] = array(
     ),
     'secured_area' => array(
         'pattern' => '^/admin',
-        'anonymous' => false,
+        'anonymous' => true,
         'remember_me' => array(),
         'form' => array(
-            'login_path' => '/login',
-            'check_path' => '/login_check',
+            'login_path' => 'login',
+            'check_path' => 'login',
         ),
         'logout' => array(
-            'logout_path' => '/logout',
+            'logout_path' => 'logout',
         ),
     ),    
 );
@@ -90,7 +90,8 @@ $app['security.firewalls'] = array(
 $app['security.role_hierarchy'] = array(
     'ROLE_ADMIN' => array('ROLE_USER', 'ROLE_ALLOWED_TO_SWITCH'),
 );
-
+/*
 $app['security.access_rules'] = array(
     array('^/admin', 'ROLE_ADMIN', 'http'),
 );
+*/

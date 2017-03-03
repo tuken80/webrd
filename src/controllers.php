@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ce fichier contient le montage (mount) des controllers du site,
+ * Ce fichier contient le mappage des controllers du site,
  * ainsi que la partie renvois d'erreur à l'utilisateur.
  *
  * PHP version 7
@@ -16,11 +16,30 @@
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-require 'controllers/default.php';
-require 'controllers/session.php';
+// Controllers de base
+$app->match('/', 'Controller\\Base::homepage')
+    ->bind('homepage')
+    ->method('GET');
+$app->match('/blog', 'Controller\\Base::blog')
+    ->bind('blog')
+    ->method('GET');
+
+// Controllers de session
+$app->match('/login', 'Controller\\Session::login')
+    ->bind('login')
+    ->method('GET|POST');
+$app->match('/logout', 'Controller\\Session::logout')
+    ->bind('logout')
+    ->method('GET');
+
+// Controllers d'administration
+$admin = $app['controllers_factory'];
+
+$admin->get('/', 'Controller\\Admin\\Base::homepage')
+    ->bind('admin')
+    ->method('GET');
 
 // mount section
-$admin = include 'controllers/admin/default.php';
 $admin->mount('/users', require 'controllers/admin/users.php');
 
 $app->mount('/admin', $admin);

@@ -1,51 +1,50 @@
 <?php
 
-/**
- * Ce fichier contient les controllers de la partie session du site.
- * Example: Login, Login_check, logout, account, etc ...
- *
- * PHP version 7
- *
- * @category PHP
- * @package  WebrdFramework
- * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
- * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
- * @link     https://github.com/tuken80/webrd.git
- */
+namespace Controller
+{
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\HttpFoundation\Response;
+    use Silex\Application;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+    class Session
+    {
+        public function login(Request $request, Application $app) 
+        {
+            $form = include __DIR__.'/../forms/login.php';
+            $form->handleRequest($request);
 
-$app->get(
-    '/login', function (Request $request) use ($app) {
-        $username = $request->server->get('PHP_AUTH_USER', false);
-        $password = $request->server->get('PHP_AUTH_PW');
+            if ($form->isSubmitted() && $form->isValid()) {
+                $data = $form->getData();
+                die(var_dump($data));
+            }
 
-        if ('igor' === $username && 'password' === $password) {
-            $app['session']->set('user', array('username' => $username));
-            return $app->redirect('/account');
+            return new Response(
+                $app['twig']->render(
+                    'session/login.html', array(
+                    'form' => $form->createView()
+                    )
+                ),
+                200,
+                array('Cache-Control' => 's-maxage=5, public')
+            );
         }
 
-        $response = new Response();
-        $response->headers->set(
-            'WWW-Authenticate', 
-            sprintf('Basic realm="%s"', 'site_login')
-        );
-        $response->setStatusCode(401, 'Please sign in.');
-        return $response;
-    }
-)
-->bind('login')
-->method('GET');
+        public function logout() 
+        {
+            if (null === $user = $app['session']->get('user')) {
+                return $app->redirect('/login');
+            }
 
-$app->get(
-    '/account', function () use ($app) {
-        if (null === $user = $app['session']->get('user')) {
-            return $app->redirect('/login');
+            return "Welcome {$user['username']}!";
         }
 
-        return "Welcome {$user['username']}!";
+        public function account() 
+        {
+            if (null === $user = $app['session']->get('user')) {
+                return $app->redirect('/login');
+            }
+
+            return "Welcome {$user['username']}!";
+        }
     }
-)
-->bind('account')
-->method('GET');
+}

@@ -19,7 +19,7 @@ $users = $app['controllers_factory'];
 
 $users->get(
     '/', function () use ($app) {
-        $userRepository = $app['db.em']->getRepository('User');
+        $userRepository = $app['db.em']->getRepository('Model\User');
         $users = $userRepository->findAll();
 
         //$users = $app['db']->fetchAll('SELECT * FROM users');
