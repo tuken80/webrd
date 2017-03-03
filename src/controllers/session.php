@@ -47,5 +47,5 @@ $app->get(
         return "Welcome {$user['username']}!";
     }
 )
-->bind('login')
+->bind('account')
 ->method('GET');

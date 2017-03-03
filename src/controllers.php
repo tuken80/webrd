@@ -17,12 +17,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 require 'controllers/default.php';
+require 'controllers/session.php';
 
 // mount section
 $admin = include 'controllers/admin/default.php';
 $admin->mount('/users', require 'controllers/admin/users.php');
-$app->mount('/admin', $admin);
 
+$app->mount('/admin', $admin);
 $app->mount('/portfolio', require 'controllers/portfolio.php');
 $app->mount('/contact', require 'controllers/contact.php');
 

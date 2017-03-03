@@ -69,9 +69,13 @@ $app['db.em'] = EntityManager::create($app['db.options'], $app['db.config']);
 
 // Configuration du firewall
 $app['security.firewalls'] = array(
-    'secured_area' => array(
+    'unsecured' => array(
         'pattern' => '^.*$',
         'anonymous' => true,
+    ),
+    'secured_area' => array(
+        'pattern' => '^/admin',
+        'anonymous' => false,
         'remember_me' => array(),
         'form' => array(
             'login_path' => '/login',
@@ -80,5 +84,13 @@ $app['security.firewalls'] = array(
         'logout' => array(
             'logout_path' => '/logout',
         ),
-    ),
+    ),    
+);
+
+$app['security.role_hierarchy'] = array(
+    'ROLE_ADMIN' => array('ROLE_USER', 'ROLE_ALLOWED_TO_SWITCH'),
+);
+
+$app['security.access_rules'] = array(
+    array('^/admin', 'ROLE_ADMIN', 'http'),
 );
