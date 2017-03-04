@@ -28,7 +28,7 @@ namespace Model {
     * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
     * @link     https://github.com/tuken80/webrd.git
     */
-    class UserRepository extends EntityRepository
+    class UtilisateurRepository extends EntityRepository
     {
     }
 }

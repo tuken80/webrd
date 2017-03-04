@@ -6,7 +6,6 @@
     "require": {
         "php": "^7.1",
         "doctrine/dbal": "^2.5",
-        "doctrine/orm": "^2.5",
         "silex/silex": "^2.0",
         "swiftmailer/swiftmailer": "^5.4",
         "symfony/asset": "^3.2",

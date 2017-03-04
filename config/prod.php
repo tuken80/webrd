@@ -13,9 +13,6 @@
  * @link     https://github.com/tuken80/webrd.git
  */
 
-use Doctrine\ORM\Tools\Setup;
-use Doctrine\ORM\EntityManager;
-
 // Configuration de twig
 $app['twig.path'] = __DIR__.'/../src/templates';
 $app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig');
@@ -61,30 +58,24 @@ $app['db.options'] = array(
     'charset'   => $parameters['database']['charset'],
 );
 
-// Configuration de doctrine orm
-$app['db.config'] = Setup::createAnnotationMetadataConfiguration(
-    array(__DIR__."/../src/models"), $app['debug']
-);
-$app['db.em'] = EntityManager::create($app['db.options'], $app['db.config']);
-
 // Configuration du firewall
 $app['security.firewalls'] = array(
-    'unsecured' => array(
-        'pattern' => '^.*$',
-        'anonymous' => true,
-    ),
     'secured_area' => array(
         'pattern' => '^/admin',
         'anonymous' => true,
-        'remember_me' => array(),
-        'form' => array(
-            'login_path' => 'login',
-            'check_path' => 'login',
+        'remember_me' => array(
+            'key'                => 'Choose_A_Unique_Random_Key_Like_This',
+            'always_remember_me' => true,
+            'secure' => true,
+            'httponly' => false,
         ),
-        'logout' => array(
-            'logout_path' => 'logout',
-        ),
-    ),    
+        'form' => true,
+        'logout' => true,
+    ),  
+    'unsecured' => array(
+        'pattern' => '^.*$',
+        'anonymous' => true,
+    ),  
 );
 
 $app['security.role_hierarchy'] = array(

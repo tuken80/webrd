@@ -29,6 +29,16 @@ $app->match('/contact', 'Controller\\Contact::formulaire')
     ->bind('contact')
     ->method('GET|POST');
 
+// Controllers de session
+$app->match('/login', 'Controller\\Session::login')
+    ->bind('login')
+    ->method('GET|POST');
+    
+$app->get('/logout', 'Controller\\Session::logout')
+    ->bind('logout')
+    ->method('GET');
+
+// Controllers de portfolio
 $app->mount(
     '/portfolio', function ($portfolio) {
         $portfolio->get('/', 'Controller\\Portfolio::index')
@@ -40,14 +50,6 @@ $app->mount(
             ->method('GET');
     }
 );
-
-// Controllers de session
-$app->match('/login', 'Controller\\Session::login')
-    ->bind('login')
-    ->method('GET|POST');
-$app->get('/logout', 'Controller\\Session::logout')
-    ->bind('logout')
-    ->method('GET');
 
 // Controllers d'administration
 $app->mount(

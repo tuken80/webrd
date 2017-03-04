@@ -44,6 +44,15 @@ namespace Controller
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $data = $form->getData();
+                                
+                // find the encoder for a UserInterface instance
+                //$encoder = $app['security.encoder_factory']->getEncoder($user);
+                // compute the encoded password for foo
+                //$password = $encoder->encodePassword('foo', $user->getSalt());
+                //if (hash_equals($knownString, $userInput)) {
+                    // ...
+                //}
+
                 die(var_dump($data));
             }
 

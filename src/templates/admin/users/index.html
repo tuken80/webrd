@@ -10,7 +10,6 @@
     <tr>
       <th>Identifiant</th>
       <th class="mdl-data-table__cell--non-numeric">Adresse email</th>
-      <th class="mdl-data-table__cell--non-numeric">Login</th>
       <th class="mdl-data-table__cell--non-numeric">Prénom</th>
       <th class="mdl-data-table__cell--non-numeric">Nom</th>
     </tr>
@@ -22,7 +21,6 @@
               <a href="{{ path('admin-users-view', {id: user.id}) }}">{{ user.id }}</a>
             </td>
             <td class="mdl-data-table__cell--non-numeric">{{ user.email }}</td>
-            <td class="mdl-data-table__cell--non-numeric">{{ user.login }}</td>
             <td class="mdl-data-table__cell--non-numeric">{{ user.nom }}</td>
             <td class="mdl-data-table__cell--non-numeric">{{ user.prenom }}</td>
           </tr>

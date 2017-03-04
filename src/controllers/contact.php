@@ -32,11 +32,12 @@ namespace Controller
         /**
         * Controller du formulaire de contact.
         *
-        * @param Application $app L'application utilisée.
+        * @param Request     $request La requête reçue.
+        * @param Application $app     L'application utilisée.
         *
         * @return Response
         */
-        public function formulaire(Application $app) 
+        public function formulaire(Request $request, Application $app) 
         {
             $form = include __DIR__.'/../forms/contact.php';
             $form->handleRequest($request);

@@ -38,10 +38,8 @@ namespace Controller\Admin
         */
         public function index(Application $app) 
         {
-            $userRepository = $app['db.em']->getRepository('Model\User');
+            $userRepository = $app['db.em']->getRepository('Model\Utilisateur');
             $users = $userRepository->findAll();
-
-            //$users = $app['db']->fetchAll('SELECT * FROM users');
         
             return new Response(
                 $app['twig']->render(
@@ -65,7 +63,7 @@ namespace Controller\Admin
         */
         public function vue(Request $request, Application $app, $id) 
         {
-            $userRepository = $app['db.em']->getRepository('Model\\User');
+            $userRepository = $app['db.em']->getRepository('Model\\Utilisateur');
             $user = $userRepository->find($id);
         
             return new Response(
