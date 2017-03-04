@@ -1,69 +1,83 @@
 <?php
 
 /**
- * Ce fichier contient les controllers de la partie contact du site.
- *
- * PHP version 7
- *
- * @category PHP
- * @package  WebrdFramework
- * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
- * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
- * @link     https://github.com/tuken80/webrd.git
- */
+* Fichier contenant la class des controllers de la partie contact.
+*
+* PHP Version 7
+*
+* @category PHP
+* @package  WebrdFramework
+* @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+* @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+* @link     https://github.com/tuken80/webrd.git
+*/
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+namespace Controller
+{
+    use Silex\Application;
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\HttpFoundation\Response;
 
-$contact = $app['controllers_factory'];
+    /**
+    * Class contenant les controller de la partie contact.
+    *
+    * @category PHP
+    * @package  WebrdFramework
+    * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+    * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+    * @link     https://github.com/tuken80/webrd.git
+    */
+    class Contact
+    {
+        /**
+        * Controller du formulaire de contact.
+        *
+        * @param Application $app L'application utilisée.
+        *
+        * @return Response
+        */
+        public function formulaire(Application $app) 
+        {
+            $form = include __DIR__.'/../forms/contact.php';
+            $form->handleRequest($request);
 
-// Contact index
-$contact->match(
-    '/', function (Request $request) use ($app) {
-        $form = include __DIR__.'/../forms/contact.php';
+            if ($form->isSubmitted() && $form->isValid()) {
+                $data = $form->getData();
 
-        $form->handleRequest($request);
+                $message = \Swift_Message::newInstance()
+                ->setSubject($data['Sujet'])
+                ->setFrom(array($data['Email']))
+                ->setTo(array('romain.duquesne.mail@gmail.com'))
+                ->setBody(
+                    $app['twig']->render(
+                        'emails/mail-contact.html',
+                        array(
+                                'mail_from' => $data['Email'],
+                                'mail_content' => $data['Contenu']
+                                )
+                    ),
+                    'text/html'
+                );
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
+                $app['mailer']->send($message);
+            
+                $app['session']->getFlashBag()->add(
+                    'application', 
+                    'Votre message a bien était envoyé.'
+                );
 
-            $message = \Swift_Message::newInstance()
-            ->setSubject($data['Sujet'])
-            ->setFrom(array($data['Email']))
-            ->setTo(array('romain.duquesne.mail@gmail.com'))
-            ->setBody(
-                $app['twig']->render(
-                    'emails/mail-contact.html',
-                    array(
-                            'mail_from' => $data['Email'],
-                            'mail_content' => $data['Contenu']
-                            )
-                ),
-                'text/html'
-            );
-
-            $app['mailer']->send($message);
+                return $app->redirect('/contact');
+            }
         
-            $app['session']->getFlashBag()->add(
-                'application', 
-                'Votre message a bien était envoyé.'
+            return new Response(
+                $app['twig']->render(
+                    'contact.html', array(
+                    'form' => $form->createView()
+                    )
+                ),
+                200,
+                array('Cache-Control' => 's-maxage=5, public')
             );
-
-            return $app->redirect('/contact');
         }
-    
-        return new Response(
-            $app['twig']->render(
-                'contact.html', array(
-                'form' => $form->createView()
-                )
-            ),
-            200,
-            array('Cache-Control' => 's-maxage=5, public')
-        );
     }
-)
-->bind('contact')
-->method('GET|POST');
-
-return $contact;
+}

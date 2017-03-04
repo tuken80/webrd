@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ce fichier contient le mappage des controllers du site,
+ * Ce fichier contient le mappage des routes et des controllers du site,
  * ainsi que la partie renvois d'erreur à l'utilisateur.
  *
  * PHP version 7
@@ -17,34 +17,60 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 // Controllers de base
-$app->match('/', 'Controller\\Base::homepage')
+$app->get('/', 'Controller\\Base::homepage')
     ->bind('homepage')
     ->method('GET');
-$app->match('/blog', 'Controller\\Base::blog')
+
+$app->get('/blog', 'Controller\\Base::blog')
     ->bind('blog')
     ->method('GET');
+
+$app->match('/contact', 'Controller\\Contact::formulaire')
+    ->bind('contact')
+    ->method('GET|POST');
+
+$app->mount(
+    '/portfolio', function ($portfolio) {
+        $portfolio->get('/', 'Controller\\Portfolio::index')
+            ->bind('portfolio')
+            ->method('GET');
+        $portfolio->get('/{id}', 'Controller\\Portfolio::vue')
+            ->bind('portfolio-vue')
+            ->assert("id", "\d+")
+            ->method('GET');
+    }
+);
 
 // Controllers de session
 $app->match('/login', 'Controller\\Session::login')
     ->bind('login')
     ->method('GET|POST');
-$app->match('/logout', 'Controller\\Session::logout')
+$app->get('/logout', 'Controller\\Session::logout')
     ->bind('logout')
     ->method('GET');
 
 // Controllers d'administration
-$admin = $app['controllers_factory'];
+$app->mount(
+    '/admin', function ($admin) {
+        $admin->get('/', 'Controller\\Admin\\Base::index')
+            ->bind('admin')
+            ->method('GET');
 
-$admin->get('/', 'Controller\\Admin\\Base::homepage')
-    ->bind('admin')
-    ->method('GET');
+        $admin->mount(
+            '/users', function ($users) {
+                $users->get('/', 'Controller\\Admin\\Users::index')
+                    ->bind('admin-users')
+                    ->method('GET');
 
-// mount section
-$admin->mount('/users', require 'controllers/admin/users.php');
+                $users->get('/{id}', 'Controller\\Admin\\Users::vue')
+                    ->bind('admin-users-view')
+                    ->assert("id", "\d+")
+                    ->method('GET');
+            }
+        );
+    }
+);
 
-$app->mount('/admin', $admin);
-$app->mount('/portfolio', require 'controllers/portfolio.php');
-$app->mount('/contact', require 'controllers/contact.php');
 
 // errors section
 $app->error(

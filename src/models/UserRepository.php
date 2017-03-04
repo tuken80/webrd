@@ -1,5 +1,17 @@
 <?php
 
+/**
+* Fichier contenant la class du repository utilisateur.
+*
+* PHP Version 7
+*
+* @category PHP
+* @package  WebrdFramework
+* @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
+* @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
+* @link     https://github.com/tuken80/webrd.git
+*/
+
 namespace Model {
         
     use Doctrine\ORM\EntityRepository;
