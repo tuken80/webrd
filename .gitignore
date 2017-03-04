@@ -9,6 +9,10 @@
 
 # Managed by composer
 /vendor/
+/composer.lock
+
+# Managed by NodeJS
+/node_modules/
 
 # TODO List
 /TODO

@@ -25,15 +25,12 @@ namespace Model {
     * @author   Romain Duquesne <romain.duquesne.mail@gmail.com>
     * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
     * @link     https://github.com/tuken80/webrd.git
-    *
-    * @Entity(repositoryClass="UtilisateurRepository") @Table(name="users")
     */
     class Utilisateur implements AdvancedUserInterface
     {
         /**
         * Identifiant utilisateur.
         *
-        * @Id  @GeneratedValue @Column(type="integer")
         * @var int
         */
         private $_id;
@@ -41,15 +38,13 @@ namespace Model {
         /**
         * Nom utilisateur.
         *
-        * @Column(type="string")
-        * @var                   string
+        * @var string
         */
         private $_nom;
 
         /**
         * Prénom utilisateur.
         *
-        * @Column(type="string")
         * @var                   string
         */
         private $_prenom;
@@ -57,7 +52,6 @@ namespace Model {
         /**
         * Adresse email utilisateur.
         *
-        * @Column(type="string")
         * @var                   string
         */
         private $_email;
@@ -65,7 +59,6 @@ namespace Model {
         /**
         * Login utilisateur.
         *
-        * @Column(type="string")
         * @var                   string
         */
         private $_username;
@@ -73,7 +66,6 @@ namespace Model {
         /**
         * Password utilisateur.
         *
-        * @Column(type="string")
         * @var                   string
         */
         private $_password;
@@ -81,7 +73,6 @@ namespace Model {
         /**
         * Salt of the user.
         *
-        * @Column(type="string")
         * @var                   string
         */
         private $_salt;
@@ -89,7 +80,6 @@ namespace Model {
         /**
         * Date d'expiration du compte.
         *
-        * @Column(type="date")
         * @var                 date
         */
         private $_date_expiration;
@@ -97,7 +87,6 @@ namespace Model {
         /**
         * Bool to lock account
         *
-        * @Column(type="bool")
         * @var                 bool
         */
         private $_lock;
@@ -105,7 +94,6 @@ namespace Model {
         /**
         * Bool to enable account after mail registration.
         *
-        * @Column(type="bool")
         * @var                 bool
         */
         private $_enable;

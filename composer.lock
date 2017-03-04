@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "437ad0033054200b5d5ceb9e058c3ba1",
+    "content-hash": "196ce370ce1f6ebb5faf1c9346f981ce",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -619,16 +619,16 @@
         },
         {
             "name": "silex/silex",
-            "version": "v2.0.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "49ca08d853731d1635374e5019c8696cfd53c161"
+                "reference": "002a6a6e08098ad52fb5785b0f3f3907a5e47ca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/49ca08d853731d1635374e5019c8696cfd53c161",
-                "reference": "49ca08d853731d1635374e5019c8696cfd53c161",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/002a6a6e08098ad52fb5785b0f3f3907a5e47ca8",
+                "reference": "002a6a6e08098ad52fb5785b0f3f3907a5e47ca8",
                 "shasum": ""
             },
             "require": {
@@ -668,12 +668,12 @@
                 "symfony/twig-bridge": "~2.8|^3.0",
                 "symfony/validator": "~2.8|^3.0",
                 "symfony/var-dumper": "~2.8|^3.0",
-                "twig/twig": "~1.27|~2.0"
+                "twig/twig": "~1.28|~2.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -700,7 +700,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2016-11-06T18:09:06+00:00"
+            "time": "2017-02-19 17:15:12"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3775,67 +3775,6 @@
             "time": "2016-11-21T23:51:53+00:00"
         },
         {
-            "name": "symfony/debug-bundle",
-            "version": "v3.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/debug-bundle.git",
-                "reference": "49be5ac7436f6ee9a507895c16a2788e4e6bf127"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug-bundle/zipball/49be5ac7436f6ee9a507895c16a2788e4e6bf127",
-                "reference": "49be5ac7436f6ee9a507895c16a2788e4e6bf127",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "symfony/http-kernel": "~2.8|~3.0",
-                "symfony/twig-bridge": "~2.8|~3.0",
-                "symfony/var-dumper": "~2.8|~3.0"
-            },
-            "require-dev": {
-                "symfony/config": "~2.8|~3.0",
-                "symfony/dependency-injection": "~2.8|~3.0",
-                "symfony/web-profiler-bundle": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/config": "For service container configuration",
-                "symfony/dependency-injection": "For using as a service from the container"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Bundle\\DebugBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony DebugBundle",
-            "homepage": "https://symfony.com",
-            "time": "2017-02-06T16:33:05+00:00"
-        },
-        {
             "name": "symfony/monolog-bridge",
             "version": "v3.2.4",
             "source": {
@@ -4183,7 +4122,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "silex/silex": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

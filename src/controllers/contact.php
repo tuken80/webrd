@@ -72,7 +72,7 @@ namespace Controller
         
             return new Response(
                 $app['twig']->render(
-                    'contact.html', array(
+                    'contact/index.html', array(
                     'form' => $form->createView()
                     )
                 ),
