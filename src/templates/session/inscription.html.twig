@@ -1,11 +1,11 @@
 {% extends "layout.html.twig" %}
 
 {% block nav %}
-    {% include 'menu.html' with {'active': 'homepage'} %}
+    {% include 'menu.html.twig' with {'active': 'homepage'} %}
 {% endblock %}
 
 {% block nav_mobile %}
-    {% include 'menu-mobile.html' with {'active': 'homepage'} %}
+    {% include 'menu-mobile.html.twig' with {'active': 'homepage'} %}
 {% endblock %}
 
 {% block content %}
