@@ -27,7 +27,7 @@ namespace Controller\Admin
     * @license  https://github.com/tuken80/webrd/blob/master/LICENCE MIT License
     * @link     https://github.com/tuken80/webrd.git
     */
-    class Users
+    class User
     {
         /**
         * Controller de la page d'index de l'administration des utilisateurs.
@@ -42,7 +42,7 @@ namespace Controller\Admin
         
             return new Response(
                 $app['twig']->render(
-                    'admin/users/index.html', array(
+                    'admin/user/index.html', array(
                     'users' => $users
                     )
                 ),
@@ -62,11 +62,16 @@ namespace Controller\Admin
         */
         public function vue(Request $request, Application $app, $id) 
         {
-            $user = $app['db']->fetchAssoc('SELECT * FROM users WHERE id = ?', array((int) $id));
+            $user = $app['db']->fetchAssoc(
+                "SELECT * FROM users WHERE id = ?", 
+                array(
+                    (int) $id
+                )
+            );
 
             return new Response(
                 $app['twig']->render(
-                    'admin/users/view.html', array(
+                    'admin/user/view.html', array(
                     'user' => $user
                     )
                 ),

@@ -18,7 +18,7 @@
     {% for user in users %}
           <tr>
             <td>
-              <a href="{{ path('admin-users-view', {id: user.id}) }}">{{ user.id }}</a>
+              <a href="{{ path('admin-user-view', {id: user.id}) }}">{{ user.id }}</a>
             </td>
             <td class="mdl-data-table__cell--non-numeric">{{ user.email }}</td>
             <td class="mdl-data-table__cell--non-numeric">{{ user.nom }}</td>

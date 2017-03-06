@@ -47,8 +47,6 @@ Silex Web Framework Skeleton
 
     # Console:
     php bin/console
-    # Doctrine:
-    php vendor/bin/doctrine
 
 ## Apache:
 

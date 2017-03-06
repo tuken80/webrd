@@ -13,41 +13,6 @@
  * @link     https://github.com/tuken80/webrd.git
  */
 
-// Configuration de twig
-$app['twig.path'] = __DIR__.'/../src/templates';
-$app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig');
-
-// Configuration des assets
-$app['assets.version'] = 'v1';
-$app['assets.version_format'] = '%s?version=%s';
-$app['assets.named_packages'] = array(
-    'css' => array('version' => 'css2', 'base_path' => '/assets/css/'),
-    'js' => array('base_path' => '/assets/js/'),
-    'img' => array('base_path' => '/assets/images/'),
-    'font' => array('base_path' => '/assets/fonts/'),
-);
-
-// Configuration de SwiftMailer
-$app['swiftmailer.options'] = array(
-    'host' => $parameters['mailer']['host'],
-    'port' => $parameters['mailer']['port'],
-    'username' => $parameters['mailer']['username'],
-    'password' => $parameters['mailer']['password'],
-    'encryption' => $parameters['mailer']['encryption'],
-    'auth_mode' => $parameters['mailer']['auth_mode']
-);
-
-// Configuration des locales
-$app['locale'] = $parameters['locale']['locale'];
-$app['locale_fallbacks'] = $parameters['locale']['locales'];
-
-// Configuration du service de traduction
-$app['translator.domains'] = array();
-
-// HTTP cache
-$app['http_cache.cache_dir'] = __DIR__.'/../var/cache/';
-$app['http_cache.esi'] = null;
-
 // Configuration de doctrine DBAL
 $app['db.options'] = array(
     'driver'    => $parameters['database']['driver'],
@@ -86,3 +51,37 @@ $app['security.access_rules'] = array(
     array('^/admin', 'ROLE_ADMIN', 'http'),
 );
 */
+// Configuration de SwiftMailer
+$app['swiftmailer.options'] = array(
+    'host' => $parameters['mailer']['host'],
+    'port' => $parameters['mailer']['port'],
+    'username' => $parameters['mailer']['username'],
+    'password' => $parameters['mailer']['password'],
+    'encryption' => $parameters['mailer']['encryption'],
+    'auth_mode' => $parameters['mailer']['auth_mode']
+);
+
+// Configuration des locales
+$app['locale'] = $parameters['locale']['locale'];
+$app['locale_fallbacks'] = $parameters['locale']['locales'];
+
+// Configuration du service de traduction
+$app['translator.domains'] = array();
+
+// Configuration de twig
+$app['twig.path'] = __DIR__.'/../src/templates';
+$app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig');
+
+// Configuration des assets
+$app['assets.version'] = 'v1';
+$app['assets.version_format'] = '%s?version=%s';
+$app['assets.named_packages'] = array(
+    'css' => array('version' => 'css2', 'base_path' => '/assets/css/'),
+    'js' => array('base_path' => '/assets/js/'),
+    'img' => array('base_path' => '/assets/images/'),
+    'font' => array('base_path' => '/assets/fonts/'),
+);
+
+// HTTP cache
+$app['http_cache.cache_dir'] = __DIR__.'/../var/cache/';
+$app['http_cache.esi'] = null;

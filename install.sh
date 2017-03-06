@@ -6,12 +6,12 @@ php -r "if (hash_file('SHA384', 'composer-setup.php') === '55d6ead61b29c7bdee5cc
 php composer-setup.php --install-dir=bin --filename=composer
 php -r "unlink('composer-setup.php');"
 
-# Installation de UglifyJS2 & UglifyCSS:
+# Installation des dépendances php via composer:
 # Rajouter --no-dev pour la production.
 php bin/composer install
 
-# Installation de UglifyJS2 & UglifyCSS:
-npm install uglify-js && npm install uglifycss
+# Installation de UglifyJS2 & UglifyCSS via Node:
+npm install
 
 # Définition des droits:
 HTTPDUSER=`ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
@@ -34,6 +34,6 @@ else
 fi
 
 # Création du schéma de la base de données:
-php vendor/bin/doctrine orm:schema-tool:create
+#php vendor/bin/doctrine orm:schema-tool:create
 
 exit 0

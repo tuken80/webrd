@@ -38,12 +38,17 @@ $app->get('/logout', 'Controller\\Session::logout')
     ->bind('logout')
     ->method('GET');
 
+$app->match('/inscription', 'Controller\\Session::inscription')
+    ->bind('inscription')
+    ->method('GET|POST');
+
 // Controllers de portfolio
 $app->mount(
     '/portfolio', function ($portfolio) {
         $portfolio->get('/', 'Controller\\Portfolio::index')
             ->bind('portfolio')
             ->method('GET');
+
         $portfolio->get('/{id}', 'Controller\\Portfolio::vue')
             ->bind('portfolio-vue')
             ->assert("id", "\d+")
@@ -60,12 +65,12 @@ $app->mount(
 
         $admin->mount(
             '/users', function ($users) {
-                $users->get('/', 'Controller\\Admin\\Users::index')
-                    ->bind('admin-users')
+                $users->get('/', 'Controller\\Admin\\User::index')
+                    ->bind('admin-user')
                     ->method('GET');
 
                 $users->get('/{id}', 'Controller\\Admin\\Users::vue')
-                    ->bind('admin-users-view')
+                    ->bind('admin-user-view')
                     ->assert("id", "\d+")
                     ->method('GET');
             }
