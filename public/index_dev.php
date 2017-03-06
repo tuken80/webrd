@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Boostrap de l'application pour le développement.
+ * Front controller de l'application pour le développement.
  *
  * PHP version 7
  *

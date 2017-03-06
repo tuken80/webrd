@@ -6,16 +6,16 @@ Silex Web Framework Skeleton
 
 * [Silex](http://silex.sensiolabs.org/)
 * [Material Design Lite](https://getmdl.io/)
-* [Doctrine DBAL & ORM](http://www.doctrine-project.org/)
+* [Doctrine DBAL](http://www.doctrine-project.org/)
 * [Swiftmailer](http://swiftmailer.org/)
 * [Twig](http://twig.sensiolabs.org/)
 
 ## Prérequis:
 
-* Git
+* PHP >= 5
 * Composer
 * NodeJS
-* PHP >= 5
+* Git
 
 ## Installation:
 

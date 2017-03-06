@@ -38,7 +38,7 @@ namespace Controller
         public function homepage(Application $app) 
         {
             return new Response(
-                $app['twig']->render('about.html'),
+                $app['twig']->render('about.html.twig'),
                 200,
                 array('Cache-Control' => 's-maxage=5, public')
             );
@@ -54,7 +54,7 @@ namespace Controller
         public function blog(Application $app) 
         {
             return new Response(
-                $app['twig']->render('blog.html'),
+                $app['twig']->render('blog.html.twig'),
                 200,
                 array('Cache-Control' => 's-maxage=5, public')
             );

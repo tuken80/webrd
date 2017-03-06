@@ -69,7 +69,7 @@ namespace Controller
 
             return new Response(
                 $app['twig']->render(
-                    'session/login.html', array(
+                    'session/login.html.twig', array(
                     'form' => $form->createView()
                     )
                 ),
@@ -147,7 +147,7 @@ namespace Controller
 
             return new Response(
                 $app['twig']->render(
-                    'session/inscription.html', array(
+                    'session/inscription.html.twig', array(
                     'form' => $form->createView()
                     )
                 ),

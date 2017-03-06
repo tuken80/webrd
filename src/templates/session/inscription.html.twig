@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layout.html.twig" %}
 
 {% block nav %}
     {% include 'menu.html' with {'active': 'homepage'} %}
@@ -8,7 +8,7 @@
     {% include 'menu-mobile.html' with {'active': 'homepage'} %}
 {% endblock %}
 
-{% block body %}
+{% block content %}
     <div class="mdl-grid portfolio-max-width portfolio-contact">
         <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
             <div class="mdl-card__title">
@@ -19,7 +19,7 @@
             </div>
             <div class="mdl-card__supporting-text">
                 <p>
-                    Sign in:
+                    Sign up:
                 </p>
                 <p>
                     Afin de vos authentifier, veuillez remplir le formulaire suivant:
@@ -28,9 +28,24 @@
                 {{ form_start(form) }}
                     {{ form_errors(form) }}
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        {{ form_widget(form.Nom, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+                        {{ form_label(form.Nom, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                        <span class="mdl-textfield__error">Entrez une adresse email valide.</span>
+                    </div>
+                        
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        {{ form_widget(form.Prenom, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+                        {{ form_label(form.Prenom, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                    </div>
+                        
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        {{ form_widget(form.Email, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+                        {{ form_label(form.Email, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                    </div>
+                        
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         {{ form_widget(form.Login, { 'attr': {'class': 'mdl-textfield__input'} }) }}
                         {{ form_label(form.Login, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
-                        <span class="mdl-textfield__error">Entrez une adresse email valide.</span>
                     </div>
                         
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -40,7 +55,7 @@
 
                     <p>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
-                            Se connecter
+                            S'inscrire
                         </button>
                     </p>
                     {{ form_widget(form._token) }}

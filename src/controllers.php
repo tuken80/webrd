@@ -69,7 +69,7 @@ $app->mount(
                     ->bind('admin-user')
                     ->method('GET');
 
-                $users->get('/{id}', 'Controller\\Admin\\Users::vue')
+                $users->get('/{id}', 'Controller\\Admin\\User::vue')
                     ->bind('admin-user-view')
                     ->assert("id", "\d+")
                     ->method('GET');

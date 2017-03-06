@@ -39,7 +39,7 @@ namespace Controller
         public function index(Application $app) 
         {
             return new Response(
-                $app['twig']->render('portfolio/index.html'),
+                $app['twig']->render('portfolio/index.html.twig'),
                 200,
                 array('Cache-Control' => 's-maxage=5, public')
             );
@@ -57,7 +57,7 @@ namespace Controller
         public function vue(Request $request, Application $app, $id) 
         {
             return new Response(
-                $app['twig']->render('portfolio/single-view.html'),
+                $app['twig']->render('portfolio/single-view.html.twig'),
                 200,
                 array('Cache-Control' => 's-maxage=5, public')
             );

@@ -38,7 +38,7 @@ namespace Controller\Admin
         public function index(Application $app) 
         {
             return new Response(
-                $app['twig']->render('admin/index.html'),
+                $app['twig']->render('admin/index.html.twig'),
                 200,
                 array('Cache-Control' => 's-maxage=5, public')
             );

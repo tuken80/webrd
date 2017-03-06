@@ -42,7 +42,7 @@ namespace Controller\Admin
         
             return new Response(
                 $app['twig']->render(
-                    'admin/user/index.html', array(
+                    'admin/user/index.html.twig', array(
                     'users' => $users
                     )
                 ),
@@ -71,7 +71,7 @@ namespace Controller\Admin
 
             return new Response(
                 $app['twig']->render(
-                    'admin/user/view.html', array(
+                    'admin/user/view.html.twig', array(
                     'user' => $user
                     )
                 ),

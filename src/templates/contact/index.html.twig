@@ -1,0 +1,56 @@
+{% extends "layout.html.twig" %}
+
+{% block nav %}
+    {% include 'menu.html.twig' with {'active': 'contact'} %}
+{% endblock %}
+
+{% block nav_mobile %}
+    {% include 'menu-mobile.html.twig' with {'active': 'contact'} %}
+{% endblock %}
+
+{% block content %}
+    <div class="mdl-grid portfolio-max-width portfolio-contact">
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Contact</h2>
+            </div>
+            <div class="mdl-card__media">
+                <img class="article-image" src="{{ asset('contact-image.jpg', 'img') }}" border="0" alt="">
+            </div>
+            <div class="mdl-card__supporting-text">
+                <p>
+                    Faire de vos projets des solutions réelles.
+                </p>
+                <p>
+                    Je suis disponible en Freelance, contactez moi afin de finaliser n'importe lequel de vos projets.
+                </p>
+                
+                {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        {{ form_widget(form.Email, { 'attr': {'class': 'mdl-textfield__input', 'pattern': '^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'} }) }}
+                        {{ form_label(form.Email, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                        <span class="mdl-textfield__error">Entrez une adresse email valide.</span>
+                    </div>
+                        
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        {{ form_widget(form.Sujet, { 'attr': {'class': 'mdl-textfield__input', 'pattern': '[A-Z,a-z, ]*'} }) }}
+                        {{ form_label(form.Sujet, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                    </div>
+                    
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        {{ form_widget(form.Contenu, { 'attr': {'class': 'mdl-textfield__input', 'pattern': '[A-Z,a-z, ]*'} }) }}
+                        {{ form_label(form.Contenu, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                    </div>
+
+                    <p>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+                            Envoyer le message
+                        </button>
+                    </p>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

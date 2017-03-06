@@ -1,14 +1,14 @@
-{% extends "base.html" %}
+{% extends "layout.html.twig" %}
 
 {% block nav %}
-    {% include 'menu.html' with {'active': 'blog'} %}
+    {% include 'menu.html.twig' with {'active': 'blog'} %}
 {% endblock %}
 
 {% block nav_mobile %}
-    {% include 'menu-mobile.html' with {'active': 'blog'} %}
+    {% include 'menu-mobile.html.twig' with {'active': 'blog'} %}
 {% endblock %}
 
-{% block body %}
+{% block content %}
     <div class="mdl-grid portfolio-max-width">
         <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp">
             <div class="mdl-card__media mdl-cell mdl-cell--12-col-tablet">
