@@ -35,7 +35,8 @@
         "psr-0": { 
             "": "src/models/",
             "Controller": "src/controllers/",
-            "Controller\\Admin": "src/controllers/admin"
+            "Controller\\Admin": "src/controllers/admin",
+            "Controller\\Provider": "src/providers/controllers"
         }
     },
     "config": {

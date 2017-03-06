@@ -51,7 +51,7 @@ namespace Controller
                 ->setTo(array('romain.duquesne.mail@gmail.com'))
                 ->setBody(
                     $app['twig']->render(
-                        'emails/mail-contact.html.twig',
+                        'contact/mail-contact.html.twig',
                         array(
                                 'mail_from' => $data['Email'],
                                 'mail_content' => $data['Contenu']

@@ -15,68 +15,22 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Controller\Provider\BaseControllerProvider;
+use Controller\Provider\AdminControllerProvider;
+use Controller\Provider\SessionControllerProvider;
+use Controller\Provider\PortfolioControllerProvider;
 
 // Controllers de base
-$app->get('/', 'Controller\\Base::homepage')
-    ->bind('homepage')
-    ->method('GET');
-
-$app->get('/blog', 'Controller\\Base::blog')
-    ->bind('blog')
-    ->method('GET');
-
-$app->match('/contact', 'Controller\\Contact::formulaire')
-    ->bind('contact')
-    ->method('GET|POST');
+$app->mount('', new BaseControllerProvider());
 
 // Controllers de session
-$app->match('/login', 'Controller\\Session::login')
-    ->bind('login')
-    ->method('GET|POST');
-    
-$app->get('/logout', 'Controller\\Session::logout')
-    ->bind('logout')
-    ->method('GET');
-
-$app->match('/inscription', 'Controller\\Session::inscription')
-    ->bind('inscription')
-    ->method('GET|POST');
+$app->mount('/session', new SessionControllerProvider());
 
 // Controllers de portfolio
-$app->mount(
-    '/portfolio', function ($portfolio) {
-        $portfolio->get('/', 'Controller\\Portfolio::index')
-            ->bind('portfolio')
-            ->method('GET');
-
-        $portfolio->get('/{id}', 'Controller\\Portfolio::vue')
-            ->bind('portfolio-vue')
-            ->assert("id", "\d+")
-            ->method('GET');
-    }
-);
+$app->mount('/portfolio', new PortfolioControllerProvider());
 
 // Controllers d'administration
-$app->mount(
-    '/admin', function ($admin) {
-        $admin->get('/', 'Controller\\Admin\\Base::index')
-            ->bind('admin')
-            ->method('GET');
-
-        $admin->mount(
-            '/users', function ($users) {
-                $users->get('/', 'Controller\\Admin\\User::index')
-                    ->bind('admin-user')
-                    ->method('GET');
-
-                $users->get('/{id}', 'Controller\\Admin\\User::vue')
-                    ->bind('admin-user-view')
-                    ->assert("id", "\d+")
-                    ->method('GET');
-            }
-        );
-    }
-);
+$app->mount('/admin', new AdminControllerProvider());
 
 
 // errors section

@@ -49,81 +49,10 @@ class Role
     *
     * @ManyToMany(targetEntity="Role")
     **/
-    protected $roles;
+    protected $users;
 
     public function __construct() 
     {
         $this->users = new ArrayCollection();
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return Role
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-
-    /**
-     * Add role.
-     *
-     * @param \Role $role
-     *
-     * @return Role
-     */
-    public function addRole(\Role $role)
-    {
-        $this->roles[] = $role;
-
-        return $this;
-    }
-
-    /**
-     * Remove role.
-     *
-     * @param \Role $role
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeRole(\Role $role)
-    {
-        return $this->roles->removeElement($role);
-    }
-
-    /**
-     * Get roles.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getRoles()
-    {
-        return $this->roles;
     }
 }
