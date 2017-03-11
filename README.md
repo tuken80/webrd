@@ -21,8 +21,8 @@ Silex Web Framework Skeleton
 
 
     # Cloner le repository:
-    git clone git@github.com:tuken80/webrd.git
-    cd webrd
+    git clone git@github.com:tuken80/webrd.git silex-skeleton
+    cd silex-skeleton
     # Copier le fichier de configuration exemple:
     cp config/parameters.yml.dist config/parameters.yml
 
@@ -55,13 +55,8 @@ Silex Web Framework Skeleton
         ServerAdmin exemple@domain.tld
         ServerName domain.tld
         ServerAlias www.domain.tld
-
-        # DirectoryIndex:
-        # index.php pour la production
-        # index_dev.php pour le développement (accessible uniquement en local)
-        DirectoryIndex index.php
-
         DocumentRoot /path/to/silex/public
+
         <Directory /path/to/silex/public>
             AllowOverride None
             Options Indexes MultiViews FollowSymLinks
@@ -73,20 +68,17 @@ Silex Web Framework Skeleton
                 #RewriteBase /path/rewrite/base
                 RewriteCond %{REQUEST_FILENAME} !-d
                 RewriteCond %{REQUEST_FILENAME} !-f
-                # RewriteRule:
-                # index.php pour la production
-                # index_dev.php pour le développement
                 RewriteRule ^ index.php [QSA,L]
             </IfModule>
         </Directory>
 
-        # On désactive la réécriture d'url pour les assets.
+        # Disable mod rewrite to assets.
         <Directory /path/to/silex/public/assets>
             <IfModule mod_rewrite.c>
                 RewriteEngine Off
             </IfModule>
         </Directory>
 
-        ErrorLog "/var/log/apache2/application-error_log"
-        CustomLog "/var/log/apache2/application-access_log" common
+        ErrorLog /path/to/silex/var/logs/apache2/error_log
+        CustomLog /path/to/silex/var/logs/apache2/access_log combined
     </VirtualHost>

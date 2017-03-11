@@ -1,8 +1,9 @@
 # Cache and logs
 /var/cache/*
 /var/logs/*
+/var/logs/apache2/*
 !var/cache/.gitkeep
-!var/logs/.gitkeep
+!var/logs/apache2/.gitkeep
 
 # Parameters
 /config/parameters.yml
@@ -19,6 +20,3 @@
 
 # OS X files
 .DS_Store
-
-# Backup entities generated with doctrine:generate:entities command
-/src/models/*~

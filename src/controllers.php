@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ce fichier contient le mappage des routes et des controllers du site,
+ * Ce fichier contient le montage des routes et des controllers du site,
  * ainsi que la partie renvois d'erreur à l'utilisateur.
  *
  * PHP version 7
