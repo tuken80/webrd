@@ -1,18 +1,18 @@
-# webrd
+# Silex-Skeleton:
 
-Silex Web Framework Skeleton
+[Silex](http://silex.sensiolabs.org/) Web Framework Skeleton.
+Silex is a PHP micro-framework to develop websites based on [Symfony](https://symfony.com/) components.
 
 ## Use:
 
-* [Silex](http://silex.sensiolabs.org/)
-* [Material Design Lite](https://getmdl.io/)
 * [Doctrine DBAL](http://www.doctrine-project.org/)
 * [Swiftmailer](http://swiftmailer.org/)
 * [Twig](http://twig.sensiolabs.org/)
+* [Material Design Lite](https://getmdl.io/)
 
-## Prérequis:
+## Requirements:
 
-* PHP >= 5
+* PHP >= 5.5.9
 * Composer
 * NodeJS
 * Git
@@ -20,27 +20,28 @@ Silex Web Framework Skeleton
 ## Installation:
 
 
-    # Cloner le repository:
+    # Cloner the repository:
     git clone git@github.com:tuken80/webrd.git silex-skeleton
+    # Move to folder:
     cd silex-skeleton
-    # Copier le fichier de configuration exemple:
+    # Copy the configuration file example:
     cp config/parameters.yml.dist config/parameters.yml
 
 ***
 
 >**Note**
->Modifier le fichier parameters.yml en fonction de votre configuration et créer la base de données associée.
+>Modify the parameters.yml file according to your configuration and create the associated database.
 
 ***
 
 
-    # Lancement du script d'installation:
+    # Launch installation script:
     bash install.sh
     
 ***
 
 >**Note**
->Liste de toutes les commandes:
+>List of all commands:
 
 ***
 

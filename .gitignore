@@ -1,6 +1,6 @@
 # Cache and logs
 /var/cache/*
-/var/logs/*
+/var/logs/monolog.log
 /var/logs/apache2/*
 !var/cache/.gitkeep
 !var/logs/apache2/.gitkeep
