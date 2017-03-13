@@ -1,6 +1,7 @@
 # Silex-Skeleton:
 
 [Silex](http://silex.sensiolabs.org/) Web Framework Skeleton.
+
 Silex is a PHP micro-framework to develop websites based on [Symfony](https://symfony.com/) components.
 
 ## Use:
@@ -20,7 +21,7 @@ Silex is a PHP micro-framework to develop websites based on [Symfony](https://sy
 ## Installation:
 
 
-    # Cloner the repository:
+    # Clone the repository:
     git clone git@github.com:tuken80/webrd.git silex-skeleton
     # Move to folder:
     cd silex-skeleton
